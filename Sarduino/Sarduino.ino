@@ -16,8 +16,6 @@
    Coord User loction     OK   
    HEX Id                 OK
    Buzzer trame suivante  OK
-
-   Corriger N49.232 N49.0232 OK std loc prot
    
    *Loop Test406 sur trame courte
    *Alarme Batterie
@@ -79,7 +77,10 @@ void loop()
 {
   if (count_oct == Nb_octet)
   {
-    /*for ( byte i = 0; i < Nb_octet; i++) // RAW data
+    
+    // Pour debug 
+    /*
+    for ( byte i = 0; i < Nb_octet; i++) // RAW data
     {
       if (octet[i] < 16)
       Serial.print('0');
@@ -87,6 +88,7 @@ void loop()
       Serial.print(" ");
     }
     Serial.println("");*/
+    
 
     if (((octet[1] == 254) && (octet[2] == 208)) || ((octet[1] == 254) && (octet[2] == 47)))// 0xFE 0xD0 autotest
     {
@@ -200,7 +202,7 @@ void test406()
 {
   longtrame = (octet[3] & 0x80) >> 7;      // taille         bit 25
   protocole = (octet[3] & 0x40) >> 6;      // protocole      bit 26
-  //protflag = (octet[4] & 0x08) >> 3;       // protocole flag bit 37
+  //protflag = (octet[4] & 0x08) >> 3;     // protocole flag bit 37
   protflag = (octet[4] & 0x0F);            // protocole flag bit 37-40
   pays = ((octet[3] & 0x3F) << 4 | (octet[4] & 0xF0) >> 4); // pays bit 27-36
   pays = pays & 0x3FF; // pays
@@ -218,7 +220,7 @@ void test406()
     Serial.println("DETRESSE 406 F4GMU");
   }
            
-  if (longtrame == 1 && protocole == 1) {                    // User loc protocol trame longue
+  if (longtrame == 1 && protocole == 1) {    // User loc protocol trame longue
     
     latflag = (octet[13] & 0x10) >> 4;   
     latdeg = ((octet[13] & 0x0F) << 3 | (octet[14] & 0xE0) >> 5);
@@ -572,7 +574,7 @@ void ledblink()
   digitalWrite(13, LOW); 
   /*delay(45000);            // Alarme Buzzer Trame suivante
   digitalWrite(7, HIGH);  
-  delay(1500);
+  delay(4500);
   digitalWrite(7, LOW);*/
   }
 
