@@ -1,5 +1,5 @@
 # Sarduino
-Décodeur balise Sarsat 406 avec un Arduino.
+Décodeur balise Sarsat 406 avec un Arduino par F4GMU
 
 Voici le code que j'ai créé avec mes maigres connaissance en programmation et traitement des octets.
 Ca risque de faire peur à ceux qui maitrise le sujet, et moi même, je me dis que j'aurai pu faire beaucoup mieux (mais ce code à déjà 3 ans, et entre temps j'ai appris beaucoup en programmation mais je n'ai jamais pris le temps de me repenché dessus).
@@ -29,3 +29,4 @@ Pour le reste, rien de plus qu'un écran Oled et une LED.
 La LED étant sur D13 bien sûr ;)
 
  
+Jérôme.
