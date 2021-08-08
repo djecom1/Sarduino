@@ -20,6 +20,7 @@ J'avais également testé l'ajout d'un buzzer sur l'idée de F5RZU qui sonne 45 sec
 
 # 3: HARDWARE
 
+ *Plus d'informations dans le dossier Hardware
 Un Arduino UNO suffit pour ce code.
 Le signal, provenant d'une sortie discri, est mis en forme pour être digérable par l'ATmega328 de l'Arduino.
 Pour cette mise en forme, je me suis appuyé sur le travail de F1LVT : http://f1lvt.com/files/333-CarteDECTRA-V6P1.66.pdf
